@@ -59,18 +59,24 @@ btnApply.onclick = function () {
                 break;
 
             case "Blur":
-                let src = mat;
-                let dst = new cv.Mat();
-                let ksize = new cv.Size(9, 9);
-                let anchor = new cv.Point(-1, -1);
-                cv.blur(src, dst, ksize, anchor, cv.BORDER_DEFAULT);
-                cv.imshow(canvasOutput, dst);
+                let srcBlur = mat;
+                let dstBlur = new cv.Mat();
+                let ksizeBlur = new cv.Size(9, 9);
+                let anchorBlur = new cv.Point(-1, -1);
+                cv.blur(srcBlur, dstBlur, ksizeBlur, anchorBlur, cv.BORDER_DEFAULT);
+                cv.imshow(canvasOutput, dstBlur);
                 // src.delete();
                 // dst.delete();
                 console.log("Blur is applied.");
                 break;
 
             case "2D Convolution":
+                let srcConvolution = mat;
+                let dstConvolution = new cv.Mat();
+                let MConvolution = new cv.Mat.eye(3, 3, cv.CV_32FC1);
+                let anchorConvolution = new cv.Point(-1, -1);
+                cv.filter2D(srcConvolution, dstConvolution, cv.CV_8U, MConvolution, anchorConvolution, 0, cv.BORDER_DEFAULT);
+                cv.imshow(canvasOutput, dstConvolution);
                 console.log("2D Convolution is applied.");
                 break;
 
