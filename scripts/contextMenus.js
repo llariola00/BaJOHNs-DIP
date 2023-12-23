@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(function () {
     chrome.contextMenus.create({
-        title: "Edit with BaJOHN's SONS",
+        title: "Edit with P-DIP",
         contexts: ["image"], // ContextType
         id: "image", // ID of menu item
     });
