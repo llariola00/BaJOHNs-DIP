@@ -81,10 +81,23 @@ btnApply.onclick = function () {
                 break;
 
             case "Resize":
+                let resizedMat = new cv.Mat();
+                let width = Math.round(mat.cols * (sliderValue / 100));
+                let height = Math.round(mat.rows * (sliderValue / 100));
+                let newSize = new cv.Size(width, height);
+                cv.resize(mat, resizedMat, newSize, 0, 0, cv.INTER_LINEAR);
+                cv.imshow(canvasOutput, resizedMat);
                 console.log("Resize is applied.");
                 break;
 
             case "Rotate":
+                let center = new cv.Point(mat.cols / 2, mat.rows / 2);
+                let angle = parseFloat(sliderValue);
+
+                let rotationMatrix = cv.getRotationMatrix2D(center, angle, 1);
+                let rotatedMat = new cv.Mat();
+                cv.warpAffine(mat, rotatedMat, rotationMatrix, mat.size(), cv.INTER_LINEAR, cv.BORDER_CONSTANT, new cv.Scalar());
+                cv.imshow(canvasOutput, rotatedMat);
                 console.log("Rotate is applied.");
                 break;
             default:
@@ -273,6 +286,7 @@ function rangeSlider() {
             elem.addEventListener("input", (eventArgs) => {
                 elem.nextElementSibling.innerText = eventArgs.target.value;
                 sliderValue = eventArgs.target.value;
+                console.log("Slider value is: ", sliderValue);
             });
         });
     });
