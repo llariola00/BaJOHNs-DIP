@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "baJOHN's SONS",
     "description": "ANAK NI BaJOHN.",
-    "version": "1.4",
+    "version": "1.5",
     "permissions": ["activeTab", "contextMenus", "tabs", "<all_urls>"],
     "icons": {
         "16": "images/icon-16.png",

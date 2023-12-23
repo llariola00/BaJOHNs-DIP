@@ -1,0 +1,56 @@
+input[type="radio"]:checked {
+    background-color: red;
+    border-color: black;
+}
+
+input[type="radio"] {
+    font-size: 26px;
+}
+
+.btn-processes {
+    min-height: 4rem;
+    min-width: 4rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.btn-options {
+    min-height: 4rem; /* Set the minimum height */
+    min-width: 8rem; /* Set the minimum width */
+}
+
+.slider {
+    display: none;
+    -webkit-appearance: none;
+    width: 80%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    margin-left: 80px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: blue;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04aa6d;
+    cursor: pointer;
+}

@@ -1,0 +1,7 @@
+# Changelog:
+=====================
+
+Version 1.5:
++ Added a feature where processed image is automatically shown/previewed.
+= Fixed download/Clipboard bug where ur able to download/Clipboard even if there's no processed image.
+- Removed imageSlider.js and moved its functions to imageProcess.js instead.

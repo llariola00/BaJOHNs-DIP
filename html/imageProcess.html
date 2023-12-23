@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="../css/bootstrap.min.css" />
         <link rel="stylesheet" href="../css/imageProcess.css" />
         <link rel="stylesheet" href="../css/imageSlider.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
         <main class="container-fluid">
@@ -40,11 +42,45 @@
                     </aside>
                 </section>
 
-                <aside class="outline col-lg-6 section-wrapper">
-                    <h2>Hello OpenCV.js</h2>
+                <aside class="outline col-lg-6 section-wrapper text-center">
+                    <h1>
+                        Banjohn's <br />
+                        Digital Image Processor
+                    </h1>
                     <p id="status">OpenCV.js is loading...</p>
 
-                    <section class="d-flex flex-column flex-nowrap py-5">
+                    <!-- IMAGE PROCESSING/FACE RECOGNIZTION-->
+                    <div class=" ">
+                        <div class="row">
+                            <div class="">
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="option1"
+                                        name="process1"
+                                    />
+                                    <label for="option1"
+                                        >Image Processing</label
+                                    >
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="option2"
+                                        name="process1"
+                                    />
+                                    <label for="option2"
+                                        >Face Recognition</label
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IMAGE PROCESSING BUTTONS -->
+                    <section class="d-flex flex-column flex-nowrap">
                         <div
                             class="btn-group row"
                             role="group"
@@ -60,9 +96,9 @@
                                     value="Grayscale"
                                 />
                                 <label
-                                    class="btn btn-outline-primary"
+                                    class="btn-processes btn btn-outline-primary"
                                     for="btnradio1"
-                                    >Radio 1</label
+                                    >Grayscale</label
                                 >
                             </div>
 
@@ -76,9 +112,9 @@
                                     value="Blur"
                                 />
                                 <label
-                                    class="btn btn-outline-primary"
+                                    class="btn-processes btn btn-outline-primary"
                                     for="btnradio2"
-                                    >Radio 2</label
+                                    >Blur</label
                                 >
                             </div>
 
@@ -92,9 +128,9 @@
                                     value="2D Convolution"
                                 />
                                 <label
-                                    class="btn btn-outline-primary"
+                                    class="btn-processes btn btn-outline-primary"
                                     for="btnradio3"
-                                    >Radio 3</label
+                                    >2D Convolution</label
                                 >
                             </div>
                             <div class="col-lg-4">
@@ -105,11 +141,12 @@
                                     id="btnradio4"
                                     autocomplete="off"
                                     value="Resize"
+                                    onclick="myFunction()"
                                 />
                                 <label
-                                    class="btn btn-outline-primary"
+                                    class="btn-processes btn btn-outline-primary"
                                     for="btnradio4"
-                                    >Radio 4</label
+                                    >Resize</label
                                 >
                             </div>
                             <div class="col-lg-4">
@@ -122,44 +159,59 @@
                                     value="Rotate"
                                 />
                                 <label
-                                    class="btn btn-outline-primary"
+                                    class="btn-processes btn btn-outline-primary"
                                     for="btnradio5"
-                                    >Radio 5</label
+                                    >Rotate</label
                                 >
                             </div>
                         </div>
                     </section>
 
-                    <section class="d-flex flex-column flex-nowrap py-5">
+                    <!-- SLIDER -->
+                    <div class="slidecontainer">
+                        <input
+                            type="range"
+                            min="1"
+                            max="100"
+                            value="50"
+                            class="slider"
+                            id="myRange"
+                        />
+                    </div>
+
+                    <!-- APPLY/DOWNLOAD/CLIPBOARD -->
+                    <section class="d-flex flex-column flex-nowrap">
                         <div
-                            class="outline row align-items-center justify-content-center"
+                            class="row align-items-center justify-content-center"
                         >
                             <div class="col">
                                 <button
                                     id="btn-apply"
                                     type="button"
-                                    class="btn btn-outline-primary"
+                                    class="btn-options btn btn-outline-primary"
                                 >
                                     Apply
                                 </button>
                             </div>
-                            <div class="col">
-                                <button
-                                    id="btn-download"
-                                    type="button"
-                                    class="btn btn-outline-primary"
-                                >
-                                    Download
-                                </button>
-                            </div>
-                            <div class="col">
-                                <button
-                                    id="btn-clipboard"
-                                    type="button"
-                                    class="btn btn-outline-primary"
-                                >
-                                    Clipboard
-                                </button>
+                            <div class="row">
+                                <div class="col">
+                                    <button
+                                        id="btn-download"
+                                        type="button"
+                                        class="btn-options btn btn-outline-primary"
+                                    >
+                                        Download
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button
+                                        id="btn-clipboard"
+                                        type="button"
+                                        class="btn-options btn btn-outline-primary"
+                                    >
+                                        Clipboard
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -168,6 +220,16 @@
         </main>
 
         <!-- SCRIPTS -->
+        <script>
+            function myFunction() {
+                let p = document.getElementById("myRange");
+                if (p.style.display === "none") {
+                    p.style.display = "block";
+                } else {
+                    p.style.display = "none";
+                }
+            }
+        </script>
         <script src="../scripts/bootstrap.bundle.min.js"></script>
         <script src="../scripts/imageProcess.js"></script>
         <script src="../scripts/imageSlider.js"></script>
