@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "baJOHN's SONS",
-    "description": "ANAK NI BaJOHN.",
+    "name": "P-DIP",
+    "description": "A Portable Digital Image Processor, right at your fingertips!",
     "version": "1.5",
     "permissions": ["activeTab", "contextMenus", "tabs", "<all_urls>"],
     "icons": {

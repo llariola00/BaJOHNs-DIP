@@ -8,231 +8,243 @@
         <link rel="stylesheet" href="../css/imageProcess.css" />
         <link rel="stylesheet" href="../css/imageSlider.css" />
         <link rel="stylesheet" href="../css/style.css" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="../css/rangeSlider.css" />
     </head>
     <body>
         <main class="container-fluid">
-            <div class="outline row">
-                <section class="outline col-lg-6 section-wrapper">
-                    <aside
-                        class="outline content-wrapper h-100 d-flex flex-column flex-nowrap align-items-center justify-content-center"
-                    >
-                        <div class="container">
-                            <div class="pic-container">
-                                <div class="pic pic-1">
-                                    <img
-                                        id="imageSrc"
-                                        class="pic__img"
-                                        src=""
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="pic pic-2">
-                                    <canvas
-                                        id="canvasOutput"
-                                        class="pic__img"
-                                    ></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-btns">
-                            <button type="button" class="btn-left"><</button>
-                            <button type="button" class="btn-right">></button>
-                        </div>
-                    </aside>
-                </section>
-
-                <aside class="outline col-lg-6 section-wrapper text-center">
-                    <h1>
-                        Banjohn's <br />
-                        Digital Image Processor
-                    </h1>
-                    <p id="status">OpenCV.js is loading...</p>
-
-                    <!-- IMAGE PROCESSING/FACE RECOGNIZTION-->
-                    <div class=" ">
-                        <div class="row">
-                            <div class="">
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        type="radio"
-                                        class="form-check-input"
-                                        id="option1"
-                                        name="process1"
-                                    />
-                                    <label for="option1"
-                                        >Image Processing</label
-                                    >
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        type="radio"
-                                        class="form-check-input"
-                                        id="option2"
-                                        name="process1"
-                                    />
-                                    <label for="option2"
-                                        >Face Recognition</label
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE PROCESSING BUTTONS -->
-                    <section class="d-flex flex-column flex-nowrap">
-                        <div
-                            class="btn-group row"
-                            role="group"
-                            aria-label="Basic radio toggle button group"
+            <div class="row">
+                <section class="col-lg-6 section-wrapper">
+                    <div class="card h-100">
+                        <aside
+                            class="content-wrapper d-flex flex-column flex-nowrap align-items-center justify-content-center"
                         >
-                            <div class="col-lg-4">
-                                <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio1"
-                                    autocomplete="off"
-                                    value="Grayscale"
-                                />
-                                <label
-                                    class="btn-processes btn btn-outline-primary"
-                                    for="btnradio1"
-                                    >Grayscale</label
-                                >
+                            <div class="container">
+                                <div class="pic-container">
+                                    <div class="pic pic-1">
+                                        <img
+                                            id="imageSrc"
+                                            class="pic__img"
+                                            src=""
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="pic pic-2">
+                                        <canvas
+                                            id="canvasOutput"
+                                            class="pic__img"
+                                        ></canvas>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="col-lg-4">
-                                <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio2"
-                                    autocomplete="off"
-                                    value="Blur"
-                                />
-                                <label
-                                    class="btn-processes btn btn-outline-primary"
-                                    for="btnradio2"
-                                    >Blur</label
-                                >
-                            </div>
-
-                            <div class="col-lg-4">
-                                <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio3"
-                                    autocomplete="off"
-                                    value="2D Convolution"
-                                />
-                                <label
-                                    class="btn-processes btn btn-outline-primary"
-                                    for="btnradio3"
-                                    >2D Convolution</label
-                                >
-                            </div>
-                            <div class="col-lg-4">
-                                <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio4"
-                                    autocomplete="off"
-                                    value="Resize"
-                                    onclick="myFunction()"
-                                />
-                                <label
-                                    class="btn-processes btn btn-outline-primary"
-                                    for="btnradio4"
-                                    >Resize</label
-                                >
-                            </div>
-                            <div class="col-lg-4">
-                                <input
-                                    type="radio"
-                                    class="btn-check"
-                                    name="btnradio"
-                                    id="btnradio5"
-                                    autocomplete="off"
-                                    value="Rotate"
-                                />
-                                <label
-                                    class="btn-processes btn btn-outline-primary"
-                                    for="btnradio5"
-                                    >Rotate</label
-                                >
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- SLIDER -->
-                    <div class="slidecontainer">
-                        <input
-                            type="range"
-                            min="1"
-                            max="100"
-                            value="50"
-                            class="slider"
-                            id="myRange"
-                        />
-                    </div>
-
-                    <!-- APPLY/DOWNLOAD/CLIPBOARD -->
-                    <section class="d-flex flex-column flex-nowrap">
-                        <div
-                            class="row align-items-center justify-content-center"
-                        >
-                            <div class="col">
-                                <button
-                                    id="btn-apply"
-                                    type="button"
-                                    class="btn-options btn btn-outline-primary"
-                                >
-                                    Apply
+                            <div class="slider-btns">
+                                <button type="button" class="btn-left">
+                                    <
+                                </button>
+                                <button type="button" class="btn-right">
+                                    >
                                 </button>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <button
-                                        id="btn-download"
-                                        type="button"
-                                        class="btn-options btn btn-outline-primary"
+                        </aside>
+                    </div>
+                </section>
+
+                <aside class="col-lg-6 section-wrapper text-center">
+                    <div class="card h-100">
+                        <h3 id="title">
+                            P-DIP: <br />
+                            Portable Digital Image Processor
+                        </h3>
+                        <p id="status">OpenCV.js is loading...</p>
+
+                        <!-- IMAGE PROCESSING/FACE RECOGNIZTION-->
+                        <section
+                            class="d-flex flex-row flex-nowrap py-3 gap-5 align-items-center justify-content-center"
+                        >
+                            <div class="processCategory form-check gap-3">
+                                <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="processCategory"
+                                    id="imageProcessing"
+                                    value="imageProcessing"
+                                    checked
+                                />
+                                <label
+                                    class="form-check-label fs-5"
+                                    for="imageProcessing"
+                                >
+                                    Image Processing
+                                </label>
+                            </div>
+
+                            <div class="processCategory form-check gap-3">
+                                <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="processCategory"
+                                    id="faceRecognition"
+                                    value="faceRecognition"
+                                />
+                                <label
+                                    class="form-check-label fs-5"
+                                    for="faceRecognition"
+                                >
+                                    Face Recognition
+                                </label>
+                            </div>
+                        </section>
+                        <div class="divider"></div>
+
+                        <!-- IMAGE PROCESSING BUTTONS -->
+                        <section
+                            class="d-flex flex-column flex-nowrap pb-3"
+                            id="imgProcess-btn-group"
+                        >
+                            <div
+                                class="btn-group row"
+                                role="group"
+                                aria-label="Basic radio toggle button group"
+                            >
+                                <div class="col-lg-4">
+                                    <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio1"
+                                        autocomplete="off"
+                                        value="Grayscale"
+                                    />
+                                    <label
+                                        class="btn-processes btn btn-outline-primary"
+                                        for="btnradio1"
+                                        >Grayscale</label
                                     >
-                                        Download
-                                    </button>
                                 </div>
-                                <div class="col">
-                                    <button
-                                        id="btn-clipboard"
-                                        type="button"
-                                        class="btn-options btn btn-outline-primary"
+
+                                <div class="col-lg-4">
+                                    <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio2"
+                                        autocomplete="off"
+                                        value="Blur"
+                                    />
+                                    <label
+                                        class="btn-processes btn btn-outline-primary"
+                                        for="btnradio2"
+                                        >Blur</label
                                     >
-                                        Clipboard
-                                    </button>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio3"
+                                        autocomplete="off"
+                                        value="2D Convolution"
+                                    />
+                                    <label
+                                        class="btn-processes btn btn-outline-primary"
+                                        for="btnradio3"
+                                        >2D Convolution</label
+                                    >
+                                </div>
+                                <div class="col-lg-4">
+                                    <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio4"
+                                        autocomplete="off"
+                                        value="Resize"
+                                        onclick="myFunction()"
+                                    />
+                                    <label
+                                        class="btn-processes btn btn-outline-primary"
+                                        for="btnradio4"
+                                        >Resize</label
+                                    >
+                                </div>
+                                <div class="col-lg-4">
+                                    <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="btnradio"
+                                        id="btnradio5"
+                                        autocomplete="off"
+                                        value="Rotate"
+                                    />
+                                    <label
+                                        class="btn-processes btn btn-outline-primary"
+                                        for="btnradio5"
+                                        >Rotate</label
+                                    >
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+
+                        <!-- SLIDER -->
+                        <section
+                            class="d-flex flex-column flex-nowrap py-3"
+                            id="slider-wrapper"
+                        >
+                            <div class="range-slider px-3">
+                                <input
+                                    class="range-slider__range"
+                                    type="range"
+                                    value="100"
+                                    min="0"
+                                    max="200"
+                                    id="customRange1"
+                                />
+                                <span class="range-slider__value">0</span>
+                                <label
+                                    class="range-slider__label fs-6"
+                                    for="customRange1"
+                                >
+                                    Size/Rotation
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- APPLY/DOWNLOAD/CLIPBOARD -->
+                        <section
+                            class="d-flex flex-row flex-nowrap gap-3 py-3 align-items-center justify-content-center"
+                        >
+                            <button
+                                id="btn-apply"
+                                type="button"
+                                class="action-btn btn btn-outline-primary"
+                            >
+                                Apply
+                            </button>
+
+                            <button
+                                id="btn-download"
+                                type="button"
+                                class="action-btn btn btn-outline-primary"
+                            >
+                                Download
+                            </button>
+
+                            <button
+                                id="btn-clipboard"
+                                type="button"
+                                class="action-btn btn btn-outline-primary"
+                            >
+                                Clipboard
+                            </button>
+                        </section>
+                    </div>
                 </aside>
             </div>
         </main>
 
-        <!-- SCRIPTS -->
-        <script>
-            function myFunction() {
-                let p = document.getElementById("myRange");
-                if (p.style.display === "none") {
-                    p.style.display = "block";
-                } else {
-                    p.style.display = "none";
-                }
-            }
-        </script>
         <script src="../scripts/bootstrap.bundle.min.js"></script>
         <script src="../scripts/imageProcess.js"></script>
-        <script src="../scripts/imageSlider.js"></script>
 
         <!-- OPENCV -->
         <script

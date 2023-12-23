@@ -2,6 +2,12 @@
     outline: red solid 1px;
 }
 
+.divider {
+    border: 1px solid #bbbbbbbb;
+    border-radius: 10px;
+    margin: 10px;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
@@ -24,8 +30,7 @@ main {
     max-height: 50vh;
 }
 
-.h1,
-h1 {
+#title {
     text-align: center;
     width: 50%;
     margin-top: 25px;

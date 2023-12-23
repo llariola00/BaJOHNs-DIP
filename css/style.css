@@ -1,56 +1,32 @@
-input[type="radio"]:checked {
-    background-color: red;
-    border-color: black;
+#imgProcess-btn-group {
+    height: 9rem;
 }
 
-input[type="radio"] {
-    font-size: 26px;
-}
-
-.btn-processes {
-    min-height: 4rem;
-    min-width: 4rem;
-    padding: 0.5rem 1rem;
+.btn-processes,
+.action-btn {
+    min-height: 3rem;
+    min-width: 2rem;
     font-size: 1rem;
+    margin: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
 }
 
-.btn-options {
-    min-height: 4rem; /* Set the minimum height */
-    min-width: 8rem; /* Set the minimum width */
+.processCategory {
+    /* min-height: 3rem; */
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
-.slider {
-    display: none;
-    -webkit-appearance: none;
-    width: 80%;
-    height: 15px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 1;
-    -webkit-transition: 0.2s;
-    transition: opacity 0.2s;
-    margin-left: 80px;
+.action-btn {
+    min-width: 7rem;
+    min-height: 3rem;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: blue;
-    cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #04aa6d;
-    cursor: pointer;
+.range-slider {
+    opacity: 0;
+    visibility: hidden;
 }

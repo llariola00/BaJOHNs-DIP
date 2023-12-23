@@ -14,6 +14,36 @@ imgSource.onload = function () {
     mat = cv.imread(imgSource);
 };
 
+// Fucntion to show slider when Resize/Rotate is selected
+function showSlider() {
+    let slider = document.querySelector(".range-slider");
+    slider.style.opacity = "1";
+    slider.style.visibility = "visible";
+}
+
+// Fucntion to hide slider when Resize/Rotate is not selected
+function hideSlider() {
+    let slider = document.querySelector(".range-slider");
+    slider.style.opacity = "0";
+    slider.style.visibility = "hidden";
+}
+
+// Add an event listener to the btn-group div
+btnGroup.addEventListener("change", function (event) {
+    if (event.target.type === "radio") {
+        console.log("Selected button:", event.target.value);
+        selectedProcess = event.target.value;
+
+        // Check if the selected process is Resize or Rotate
+        if (selectedProcess === "Resize" || selectedProcess === "Rotate") {
+            showSlider();
+        } else {
+            hideSlider();
+        }
+    }
+});
+
+// Function to apply the selected image processing operation
 btnApply.onclick = function () {
     if (mat) {
         switch (selectedProcess) {
@@ -63,15 +93,9 @@ btnApply.onclick = function () {
             goToSlide(1);
         }
     }
-};
 
-// Add an event listener to the btn-group div
-btnGroup.addEventListener("change", function (event) {
-    if (event.target.type === "radio") {
-        console.log("Selected button:", event.target.value);
-        selectedProcess = event.target.value;
-    }
-});
+    console.log("Slider value:", sliderValue);
+};
 
 // Function to download the processed image
 btnDownload.onclick = function () {
@@ -197,3 +221,54 @@ btnRight.addEventListener("click", nextSlide);
 btnLeft.addEventListener("click", prevSlide);
 // END OF IMAGE SLIDER FUCNTIONALITY
 //
+
+//
+// START OF IMAGE CATEGORY SELECTOR FUNCTIONALITY (IMAGE PROCESSING / FACE RECOGNITION)
+// Select the processCategory radio buttons and imgProcess-btn-group element
+let processCategoryRadios = document.querySelectorAll(
+    '.processCategory input[type="radio"]'
+);
+let imgProcessBtnGroup = document.querySelector("#imgProcess-btn-group");
+
+// Add an event listener to each processCategory radio button
+processCategoryRadios.forEach((radio) => {
+    radio.addEventListener("change", function () {
+        // Check the value of the selected radio button
+        if (this.value === "imageProcessing") {
+            // If the value is 'imageProcessing', show the imgProcess-btn-group
+            imgProcessBtnGroup.style.opacity = "1";
+            imgProcessBtnGroup.style.visibility = "visible";
+        } else {
+            // Otherwise, hide the imgProcess-btn-group
+            imgProcessBtnGroup.style.opacity = "0";
+            imgProcessBtnGroup.style.visibility = "hidden";
+        }
+    });
+});
+// END OF IMAGE CATEGORY SELECTOR FUNCTIONALITY
+//
+
+//
+// START OF SLIDER VALUE FUNCTIONALITY
+let sliderValue;
+
+function rangeSlider() {
+    let slider = document.querySelectorAll(".range-slider");
+    let range = document.querySelectorAll(".range-slider__range");
+    let value = document.querySelectorAll(".range-slider__value");
+
+    slider.forEach((currentSlider) => {
+        value.forEach((currentValue) => {
+            let val = currentValue.previousElementSibling.getAttribute("value");
+            currentValue.innerText = val;
+        });
+
+        range.forEach((elem) => {
+            elem.addEventListener("input", (eventArgs) => {
+                elem.nextElementSibling.innerText = eventArgs.target.value;
+                sliderValue = eventArgs.target.value;
+            });
+        });
+    });
+}
+rangeSlider();
